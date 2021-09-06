@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius&display=swap");
+
+.home {
+  text-align: center;
+  background-color: #078fc0;
+  height: 100vh;
+
+  button {
+    width: 200px;
+    height: 200px;
+    font-family: "Delius", cursive;
+    font-size: 40px;
+    background-color: #fe7f01;
+    box-shadow: 0px 16px #8b4b00;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    top: 110%;
+    -ms-transform: translateY(-110%);
+    transform: translateY(110%);
+  }
+
+  button:focus {
+    box-shadow: none;
+  }
+}
