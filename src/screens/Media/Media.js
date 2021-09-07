@@ -37,15 +37,7 @@ const Media = () => {
   }, []);
 
   const changedata = async () => {
-    try {
-      const fetch = await axios.get(
-        `https://www.reddit.com/r/${subreddit}/random.json?limit=1`
-      );
-      setLoading(false);
-      setData(fetch.data[0].data.children[0].data);
-    } catch (err) {
-      setError(true);
-    }
+    window.location.reload();
   };
 
   // console.log(data);
@@ -73,6 +65,12 @@ const Media = () => {
         )}
       </div>
 
+      <div className={styles.imagePlaceholder}>
+        {data?.url?.endsWith(`jpg` || `jpeg` || `png`) && (
+          <p>{data.subreddit}</p>
+        )}
+      </div>
+
       <div className={styles.button}>
         <button onClick={changedata}>More Derp</button>
       </div>
@@ -81,3 +79,13 @@ const Media = () => {
 };
 
 export default Media;
+
+// try {
+//   const fetch = await axios.get(
+//     `https://www.reddit.com/r/${subreddit}/random.json?limit=1`
+//   );
+//   setLoading(false);
+//   setData(fetch.data[0].data.children[0].data);
+// } catch (err) {
+//   setError(true);
+// }
