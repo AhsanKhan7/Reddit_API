@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Media.module.scss";
-// import ReactPlayer from "react-player";
 import ReactHlsPlayer from "react-hls-player";
 import axios from "axios";
 
@@ -40,7 +39,6 @@ const Media = () => {
     window.location.reload();
   };
 
-  // console.log(data);
   // let hh = "https://v.redd.it/0lo6jxemyql71/HLSPlaylist.m3u8?a=1633512116%2CODU2MzdkNmQwNWYwNjczZjkzZmYzOTgxZmI5M2I0ZWMyMWQ4YWVjMGVlNzE2M2U4YWY4OTFiMmJkZWQ1YWFjYg%3D%3D&amp;v=1&amp;f=sd";
   return (
     <div className={styles.media}>
@@ -55,9 +53,11 @@ const Media = () => {
         {data.secure_media?.reddit_video?.hls_url && (
           <div className={styles.video}>
             <ReactHlsPlayer
+              className={styles.player}
               src={data.secure_media?.reddit_video?.hls_url}
               autoPlay={true}
               controls={true}
+              muted={true}
               width="100%"
               height="auto"
             />
@@ -79,13 +79,3 @@ const Media = () => {
 };
 
 export default Media;
-
-// try {
-//   const fetch = await axios.get(
-//     `https://www.reddit.com/r/${subreddit}/random.json?limit=1`
-//   );
-//   setLoading(false);
-//   setData(fetch.data[0].data.children[0].data);
-// } catch (err) {
-//   setError(true);
-// }

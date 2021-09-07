@@ -16,6 +16,7 @@
     height: 70vh;
     padding: 20px 30px;
     position: absolute;
+    width: 100%;
 
     img {
       width: 100%;
@@ -27,12 +28,15 @@
     }
   }
   .imagePlaceholder {
-    top: 40%;
+    margin-top: 40%;
+    p {
+      color: white;
+    }
   }
 
   .button {
-    position: fixed;
-    top: 80%;
+    position: absolute;
+    top: 75%;
     left: 35%;
     button {
       width: 130px;

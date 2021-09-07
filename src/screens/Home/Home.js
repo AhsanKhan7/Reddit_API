@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "./Home.module.scss";
-import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ history }) => {
+  const gotoMedia = () => {
+    setTimeout(() => {
+      history.push("/media");
+    }, 700);
+  };
+
   return (
     <div className={styles.home}>
-      <Link to="/media">
-        <button>Derp me up</button>
-      </Link>
+      <button onClick={gotoMedia}>Derp me up</button>
     </div>
   );
 };
