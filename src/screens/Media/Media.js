@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Media.module.scss";
+import defImage from "../../defImage/defImage.jpg";
 import ReactHlsPlayer from "react-hls-player";
 import axios from "axios";
 
@@ -71,6 +72,11 @@ const Media = () => {
           data?.thumbnail?.endsWith(`jpg` || `jpeg` || `png`) && (
             <img src={data.thumbnail} alt={data.thumbnail} />
           )}
+
+        {!data?.url?.endsWith(`jpg` || `jpeg` || `png`) &&
+          !data.secure_media?.reddit_video?.hls_url &&
+          !data?.thumbnail?.endsWith(`jpg` || `jpeg` || `png`) &&
+          !loading && <img src={defImage} alt="pic" />}
       </div>
 
       <div className={styles.imagePlaceholder}>
