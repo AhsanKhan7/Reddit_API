@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Media.module.scss";
 import defImage from "../../defImage/defImage.jpg";
+
+import smallButton from "../../buttonImg/smallButton.png";
+import smallButton2 from "../../buttonImg/smallButton2.png";
+
 import ReactHlsPlayer from "react-hls-player";
 import axios from "axios";
 
 const Media = () => {
   const [data, setData] = useState("");
+  const [button, setButton] = useState(smallButton);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -36,10 +41,11 @@ const Media = () => {
     // eslint-disable-next-line
   }, []);
   const changedata = async () => {
+    setButton(smallButton2);
     window.location.reload();
   };
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className={styles.media}>
@@ -86,7 +92,9 @@ const Media = () => {
       </div>
 
       <div className={styles.button}>
-        <button onClick={changedata}>More Derp</button>
+        <button onClick={changedata}>
+          <img src={button} alt="button" />
+        </button>
       </div>
     </div>
   );
