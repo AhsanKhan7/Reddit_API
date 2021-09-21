@@ -5,7 +5,6 @@ import defImage from "../../defImage/defImage.jpg";
 import smallButton from "../../buttonImg/smallButton.png";
 import smallButton2 from "../../buttonImg/smallButton2.png";
 
-import ReactHlsPlayer from "react-hls-player";
 import axios from "axios";
 
 const Media = () => {
@@ -60,15 +59,12 @@ const Media = () => {
 
         {data.secure_media?.reddit_video?.hls_url && (
           <div className={styles.video}>
-            <ReactHlsPlayer
-              className={styles.player}
-              src={data.secure_media?.reddit_video?.hls_url}
-              autoPlay={false}
-              controls={true}
-              muted={true}
-              width="100%"
-              height="auto"
-            />
+            <video autoPlay loop playsInline className={styles.video}>
+              <source
+                src={data.secure_media?.reddit_video?.hls_url}
+                type="video/mp4"
+              />
+            </video>
           </div>
         )}
 
@@ -100,11 +96,3 @@ const Media = () => {
 };
 
 export default Media;
-
-// const fallBack =
-//   "https://v.redd.it/kutyumqf2uo61/DASH_720.mp4?source=fallback";
-// const dash =
-//   "https://v.redd.it/kutyumqf2uo61/DASHPlaylist.mpd?a=1634287431%2CZTQyMWMxMmY2NTAzMTFhMjI3MmQ1YWVmYTI1N2MyMTcxMmVhZjEyMGRlZDE1ZGQyMzZiMWIxZTJmODc2YTYzZg%3D%3D&amp;v=1&amp;f=sd";
-// const hls =
-//   "https://v.redd.it/kutyumqf2uo61/HLSPlaylist.m3u8?a=1634287431%2CYmI0YTUxZDI3NGE4YjYzOGYzMjUyZWRjZWUyY2YxNmMyN2VlMWJkMmIxZDE5NDVmNDNmYTAyNmQxNWI0MzBkNw%3D%3D&amp;v=1&amp;f=sd";
-// const scrubble = "https://v.redd.it/kutyumqf2uo61/DASH_96.mp4";
